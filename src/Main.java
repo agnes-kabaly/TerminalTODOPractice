@@ -58,25 +58,23 @@ public class Main {
     }
 
     public static void modifyItem() {
-        System.out.println("Enter item number: ");
-        int itemNumber = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println("Enter replacement item: ");
-        String newItem = scanner.nextLine();
-        todoList.modifyTodoItem(itemNumber - 1, newItem);
+        System.out.println("Enter current TODO item name: ");
+        String todo = scanner.nextLine();
+        System.out.println("Enter new TODO item: ");
+        String newTodo = scanner.nextLine();
+        todoList.modifyTodoItem(todo, newTodo);
     }
 
     public static void removeItem() {
-        System.out.println("Enter item number: ");
-        int itemNumber = scanner.nextInt();
-        scanner.nextLine();
-        todoList.removeTodoItem(itemNumber - 1);
+        System.out.println("Enter TODO item name: ");
+        String todo = scanner.nextLine();
+        todoList.removeTodoItem(todo);
     }
 
     public static void searchItem() {
         System.out.println("Item to search for: ");
         String searchItem = scanner.nextLine();
-        if (todoList.findItem(searchItem) != null) {
+        if (todoList.onFile(searchItem)) {
             System.out.println("Found " + searchItem + " in our TODO list");
         } else {
             System.out.println(searchItem + " is not in the shopping list");
